@@ -13,20 +13,24 @@ function SearchBar({ onSubmit }) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          className="input is-primary"
-          type="text"
-          placeholder="Primary input"
-          onChange={handleChange}
-          value={term}
-        ></input>
-        <div onClick={handleSubmit} className="buttons">
-          <button className="button is-primary">Submit</button>
+    <nav className="mt-4 mb-4">
+      <div className="field has-addons box">
+        <div className="control is-expanded">
+          <input
+            className="input is-primary"
+            type="text"
+            placeholder="Search Images"
+            onChange={handleChange}
+            value={term}
+          ></input>
         </div>
-      </form>
-    </div>
+        <div className="control">
+          <div onClick={handleSubmit} className="buttons">
+            <button className="button is-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 }
 

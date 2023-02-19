@@ -1,18 +1,21 @@
+import { useState } from "react";
 import searchImages from "./API/searchImages";
 import ImageList from "./components/ImageList";
 import SearchBar from "./components/SearchBar";
-import ImageShow from "./components/ImageShow";
 
 function App() {
+  const [images, setImages] = useState([]);
+
   const handleSubmit = async (userSearch) => {
     const result = await searchImages(userSearch);
-    ImageList(result);
+
+    setImages(result);
   };
 
   return (
-    <div>
+    <div className="container is-fluid">
       <SearchBar onSubmit={handleSubmit} />
-      <ImageShow />
+      <ImageList images={images} />
     </div>
   );
 }
